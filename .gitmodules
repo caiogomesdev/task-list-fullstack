@@ -1,6 +1,6 @@
 [submodule "web"]
 	path = web
-	url = 
+	url = https://github.com/caiogomesdev/task-list-fullstack/tree/main/web
 [submodule "back-end"]
 	path = back-end
-	url = 
+	url = https://github.com/caiogomesdev/task-list-fullstack/tree/main/back-end
