@@ -3,7 +3,7 @@ Aplicação React e node com conexão ao banco de dados MYSQL, para salvar suas 
 
 ---
 
-### Get starting
+### Get started
 Para começar basta iniciar o servidor dentro da pasta web com o comando:
 ```
 ## dentro da pasta backend
