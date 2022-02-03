@@ -21,7 +21,7 @@ padding: 5px 10px;
 box-shadow: 0px 3px 5px rgba(0,0,0,.1);
 
 border-radius: 5px;
-transition: all ease-in-out 0.01s;
+transition: all ease-in-out 0.05s;
 margin-bottom: 15px;
 
 &:hover{

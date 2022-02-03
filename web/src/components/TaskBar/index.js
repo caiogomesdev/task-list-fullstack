@@ -1,4 +1,8 @@
-import {Bar, NonSelect, BarBody} from "./style"
+import {Bar, 
+    NonSelect, 
+    BarBody
+} from "./style"
+
 import {useState, useEffect, useRef} from "react"
 const App = ({name, description})=>
 {
@@ -14,7 +18,7 @@ const App = ({name, description})=>
     const PaddingHeight = 10
 
     useEffect(()=>{
-    },[move])
+    },[moved])
 
     function OnMouseDown(item){
         setMove(true);
@@ -29,43 +33,42 @@ const App = ({name, description})=>
         TaskBarBody.current.style.zindex = "2"
         setInitialOffset({x: item.clientX - TaskBarBody.current.offsetLeft, y:item.clientY - TaskBarBody.current.offsetTop})
     }
-    function OnMouseMove(item){
-        if(!move) return;
-        
-        setMoved(true);
-
-        TaskBarBody.current.style.position = "absolute"
-
-        TaskBarBody.current.style.top = `${(item.clientY - initialOffSet.y)}px`
-        TaskBarBody.current.style.left = `${item.clientX - initialOffSet.x}px`
-    }
     function OnMouseUp(item){
         if(!move) return; //Para não validar eventos que não tenham OnMouseDown
-        console.log("UP")
+        TaskBar.current.style.border = "none"
         setMove(false);
         setMoved(false);
         if(!moved) Click(item);
 
         TaskBarBody.current.style.zindex = "1"
-        TaskBarBody.current.style.position = ""
+        TaskBarBody.current.style.position = TaskBar.current.style.height 
+        = TaskBarBody.current.style.backgroundColor = TaskBarBody.current.style.padding = ""
     }
 
     function OnMouseMove(item){
         if(!move) return;
         
         setMoved(true);
+        TaskBar.current.style.height = `${TaskBarBody.current.offsetHeight + PaddingHeight}px`;
+        TaskBar.current.style.border = "dashed 2px rgba(0,0,0,0.4)"
 
-        TaskBarBody.current.style.position = "absolute"
-
+        TaskBarBody.current.style.position = "absolute";
+        TaskBarBody.current.style.backgroundColor = "rgba(242,242,242,.5)"
+        TaskBarBody.current.style.borderRadius = "5px"
         TaskBarBody.current.style.top = `${(item.clientY - initialOffSet.y)}px`
         TaskBarBody.current.style.left = `${item.clientX - initialOffSet.x}px`
     }
     function Click(item){
-        //Quando clicar
-
+        
     }
     return(
-        <Bar id="TaskBar" Moved={move && moved} ref={TaskBar} onMouseLeave={(item)=>OnMouseUp(item)} onMouseDown={(item)=> OnMouseDown(item)} onMouseUp={(item)=> OnMouseUp(item)} onMouseMove={(item)=>OnMouseMove(item)}>
+        <Bar id="TaskBar" Moved={moved} 
+        ref={TaskBar} 
+        onMouseLeave={(item)=>OnMouseUp(item)} 
+        onMouseDown={(item)=> OnMouseDown(item)} 
+        onMouseUp={(item)=> OnMouseUp(item)} 
+        onMouseMove={(item)=>OnMouseMove(item)}
+        >
             <BarBody ref={TaskBarBody}>
                 <NonSelect>
                     <h3>{name}</h3>
