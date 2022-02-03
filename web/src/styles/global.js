@@ -6,6 +6,7 @@ import {createGlobalStyle} from "styled-components"
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    position: unset;
 }
 a{
   color: #000;
@@ -15,6 +16,7 @@ a{
 a:active{
   color: #40916c;
 }
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -22,11 +24,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f2f2f2;
-  }
-  
-  code {
-    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-      monospace;
   }
 
 `
